@@ -20,7 +20,7 @@ class Service < ApplicationRecord
   def owned_by?(user)
     self.user == user
   end
-  
+
   private
 
   def normalize_title

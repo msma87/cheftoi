@@ -2,11 +2,25 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-  # ... outros métodos ...
+  def new
+    @service = Service.new
+  end
+
+  def create
+    @service = Service.new(service_params)
+    @service.user = current_user
+
+    if @service.save
+      redirect_to service_path(@service)
+    else
+      render :new
+    end
+  end
+
   def index
     @services = Service.all # Isso garante que @services será uma coleção, mesmo que vazia
   end
-  
+
   def destroy
     if @service.user == current_user # Adiciona verificação de proprietário
       if @service.destroy

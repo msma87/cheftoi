@@ -12,8 +12,4 @@ Rails.application.routes.draw do
   resources :services do
     resources :bookings, only: [:new, :create, :destroy]
   end
-
-  get 'pages/add_service', to: 'pages#add_service', as: 'add_service'
-  get 'pages/book_service', to: 'pages#book_service', as: 'book_service'
-
 end
