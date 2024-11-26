@@ -17,6 +17,10 @@ class Service < ApplicationRecord
   # Callback para normalizar os títulos
   before_save :normalize_title
 
+  def owned_by?(user)
+    self.user == user
+  end
+
   private
 
   def normalize_title
