@@ -1,8 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
 <% if user_signed_in? %>
   <p>Bem-vindo, <%= current_user.email %>!</p>
 <% else %>
-  <p>Bem-vindo, visitante!</p>
+  <p>Bem-vindo, visitante! Faça o login para continuar</p>
 <% end %>
+
+<div>
+  <h1>Seja bem-vindo ao Chef Toi!</h1>
+   <div>
+    <!-- Botão para adicionar um serviço -->
+    <%= link_to 'Quero cozinhar', new_service_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div>
+    <!-- Botão para reservar um serviço -->
+    <%= link_to 'Quero contratar', services_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
