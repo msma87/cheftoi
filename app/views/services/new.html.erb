@@ -1,0 +1,8 @@
+<%= simple_form_for @service do |form| %>
+  <%= form.input :title, label: 'Título do serviço' %>
+  <%= form.input :category, label: 'Categoria' %>
+  <%= form.input :price, label: 'Preço', as: :integer %>
+    <div>
+      <%= form.button :submit, 'Salvar' %>
+    </div>
+<% end %>

@@ -9,8 +9,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  
-  get 'pages/add_service', to: 'pages#add_service', as: 'add_service'
-  get 'pages/book_service', to: 'pages#book_service', as: 'book_service'
 
+  resources :services
 end
