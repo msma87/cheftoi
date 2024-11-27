@@ -40,7 +40,8 @@ class ServicesController < ApplicationController
   private
 
   def set_service
-    @service = Service.find(params[:id])
+    @service = Service.find_by(id: params[:id])
+    redirect_to services_path, alert: 'Service not found' if @service.nil?
   end
 
   def service_params

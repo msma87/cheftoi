@@ -4,6 +4,7 @@ class Service < ApplicationRecord
   has_many :users, through: :bookings
   belongs_to :user
 
+
   # Validações de title, category e price
   validates :title,
     presence: true,
@@ -13,7 +14,7 @@ class Service < ApplicationRecord
   validates :price,
     presence: true,
     numericality: { greater_than: 0, less_than: 10_000, message: "deve ser maior que 0 e menor que 10.000" }
-  validates :photo, presence: :true
+
 
   # Callback para normalizar os títulos
   before_save :normalize_title
