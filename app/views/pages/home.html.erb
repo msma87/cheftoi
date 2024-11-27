@@ -1,18 +1,21 @@
-<% if user_signed_in? %>
+<div class="home-container">
+  <div class="welcome-section">
+    <div class="user-greeting">
+    <% if user_signed_in? %>
   <p>Olá, <%= current_user.email %>!</p>
 <% else %>
   <p>Olá, visitante! Faça o login para continuar</p>
 <% end %>
+ </div>
 
-<div>
+
   <h1>Seja bem-vindo ao Chef Toi!</h1>
-   <div>
+
+    <div class="buttons-container">
     <!-- Botão para ver meus serviços -->
     <%= link_to 'Quero cozinhar', my_services_path, class: 'btn btn-primary' %>
-  </div>
-
-  <div>
     <!-- Botão para reservar um serviço -->
     <%= link_to 'Quero contratar', services_path, class: 'btn btn-secondary' %>
+    </div>
   </div>
 </div>
