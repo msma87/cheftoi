@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
   end
 
   def my
-    @services = Service.current_user
+    @services = Service.where(user: current_user)
   end
 
   def new
@@ -44,6 +44,6 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:title, :category, :price, :description) # Atualize com todos os campos permitidos
+    params.require(:service).permit(:title, :category, :price, :description, :photo) # Atualize com todos os campos permitidos
   end
 end

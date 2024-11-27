@@ -1,8 +1,10 @@
-<%= simple_form_for @service do |form| %>
+<%= simple_form_for @service, html: { multipart: true } do |form| %>
   <%= form.input :title, label: 'Título do serviço' %>
   <%= form.input :category, label: 'Categoria' %>
   <%= form.input :price, label: 'Preço', as: :integer %>
   <%= form.input :description, label: 'Descrição' %>
+
+  <%= form.input :photo, as: :file, label: 'Foto do serviço' %>
     <div>
       <%= form.button :submit, 'Salvar' %>
     </div>

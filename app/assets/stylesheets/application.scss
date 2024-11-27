@@ -10,3 +10,35 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/home"; // inserido para pegar os componentes da parcial home - Máira
+
+.global-background {
+  min-height: 100vh;
+  position: relative;
+
+  &::before {
+    content: '';
+    background-image: url("imagens/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.7;
+    z-index: -1;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0; /* Remove margens do body */
+}
+
+main {
+  flex: 1; /* Faz o conteúdo crescer para preencher o espaço restante */
+}
