@@ -1,21 +1,15 @@
-<div class="home-container">
-  <div class="welcome-section">
-    <div class="user-greeting">
-    <% if user_signed_in? %>
-  <p>Olá, <%= current_user.email %>!</p>
-<% else %>
-  <p>Olá, visitante! Faça o login para continuar</p>
-<% end %>
- </div>
+<div class="hero-section">
+  <h1 class="main-title">Chef Toi</h1>
+  <p class="tagline">Experiência Gastronômicas Exclusivas</p>
 
+  <div class="cta-buttons">
+    <%= link_to my_services_path, class: 'btn-experience chef' do %>
+      <span class="btn-title">Quero proporcionar experiências</span>
+      <span >
+    <% end %>
 
-  <h1>Seja bem-vindo ao Chef Toi!</h1>
-
-    <div class="buttons-container">
-      <!-- Botão para ver meus serviços -->
-      <%= link_to 'Quero cozinhar', my_services_path, class: 'btn btn-primary' %>
-      <!-- Botão para reservar um serviço -->
-      <%= link_to 'Quero contratar', services_path, class: 'btn btn-secondary' %>
-    </div>
+    <%= link_to services_path, class: 'btn-experience guest' do %>
+      <span class="btn-title">Quero viver experiências</span>
+    <% end %>
   </div>
 </div>

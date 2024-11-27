@@ -1,11 +1,56 @@
-.home-container {
-  min-height: 100vh;
-  position: relative;
+.hero-section {
+  min-height: 90vh;
+  background-image: url('culinary-bg.jpg');
+  background-size: cover;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 2rem;
+  align-items: center;
+  color: #2C3E50;
 }
 
+.cta-buttons {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.btn-experience {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 280px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-experience.chef {
+  background: #ffffff9c;
+  border: 2px solid #2F4F4F;
+  color: #2F4F4F;
+}
+
+.btn-experience.guest {
+  background: #2F4F4F;
+  border: 2px solid#FAF0E6;
+  color: #FAF0E6;
+}
+
+.btn-title {
+  font-size: 1.2rem;
+  font-weight: 1000;
+  margin-bottom: 0.5rem;
+}
+
+.btn-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.btn-experience:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
