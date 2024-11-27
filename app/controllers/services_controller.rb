@@ -7,7 +7,7 @@ class ServicesController < ApplicationController
   end
 
   def my
-    @services = current_user.services
+    @services = Service.current_user
   end
 
   def new

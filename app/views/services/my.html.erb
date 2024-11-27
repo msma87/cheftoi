@@ -1,7 +1,7 @@
-<h1> Seguem os detalhes dos servicos desse chefe</h1>
-      <% @services.each do |service| %>
+<h1> Seguem os detalhes dos servicos que voce oferece</h1>
+      <% @services.each do |service|%>
           <%= service.title%>
           <%= service.category%>
-          <%= service.price%>
+          R$ <%= number_with_precision(service.price, precision: 2) %>
           <%= service.user.id%>
-      <% end %>
+      <%end%>
