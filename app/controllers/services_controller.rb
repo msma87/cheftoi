@@ -2,6 +2,14 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def index
+    @services = Service.all
+  end
+
+  def my
+    @services = current_user.services
+  end
+
   def new
     @service = Service.new
   end
@@ -15,10 +23,6 @@ class ServicesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def index
-    @services = Service.all # Isso garante que @services será uma coleção, mesmo que vazia
   end
 
   def destroy
