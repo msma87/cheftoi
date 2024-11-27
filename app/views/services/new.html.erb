@@ -1,11 +1,38 @@
-<%= simple_form_for @service, html: { multipart: true } do |form| %>
-  <%= form.input :title, label: 'Título do serviço' %>
-  <%= form.input :category, label: 'Categoria' %>
-  <%= form.input :price, label: 'Preço', as: :integer %>
-  <%= form.input :description, label: 'Descrição' %>
-
-  <%= form.input :photo, as: :file, label: 'Foto do serviço' %>
-    <div>
-      <%= form.button :submit, 'Salvar' %>
+<%= simple_form_for @service, html: { multipart: true, class: 'd-flex justify-content-center align-items-center vh-100' } do |form| %>
+  <div class="card shadow-lg p-4" style="width: 400px;">
+    <!-- Título do serviço -->
+    <div class="form-group">
+      <%= form.input :title, label: 'Título do serviço', input_html: { class: 'form-control form-control-sm' } %>
     </div>
+
+    <!-- Categoria -->
+    <div class="form-group">
+      <%= form.input :category, label: 'Categoria', input_html: { class: 'form-control form-control-sm' } %>
+    </div>
+
+    <!-- Preço -->
+    <div class="form-group">
+      <%= form.input :price, label: 'Preço', as: :integer, input_html: { class: 'form-control form-control-sm' } %>
+    </div>
+
+    <!-- Descrição -->
+    <div class="form-group">
+      <%= form.input :description, label: 'Descrição', input_html: { class: 'form-control form-control-sm' } %>
+    </div>
+
+    <!-- Foto -->
+    <div class="form-group">
+      <%= form.input :photo, as: :file, label: 'Foto do serviço', input_html: { class: 'form-control form-control-sm' } %>
+    </div>
+
+    <!-- Botão de envio -->
+    <div class="form-group text-center mt-4">
+      <%= form.button :submit, 'Salvar', class: 'btn btn-info' %>
+    </div>
+  </div>
 <% end %>
+
+<!-- Link de volta -->
+<div class="text-center mt-4">
+  <%= link_to "< Voltar", services_path, class: 'btn btn-link' %>
+</div>
