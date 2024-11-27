@@ -1,50 +1,47 @@
-<%# app/views/services/show.html.erb %>
-<div class="container mx-auto px-4 py-8">
-  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-    <div class="p-6">
-      <div class="flex justify-between items-center mb-6">
-        <h1 class="text-3xl font-bold text-gray-900"><%= @service.title %></h1>
-        <span class="text-2xl font-bold text-green-600">R$ <%= number_with_precision(@service.price, precision: 2) %></span>
-      </div>
+<div class="container mt-4">
+ <div class="card card-details" style="max-width: 800px; margin: 0 auto;">
+   <div class="card-body">
+     <div class="d-flex justify-content-between align-items-center mb-4">
+       <h1 class="card-title"><%= @service.title %></h1>
+       <h2 class="text-success">R$ <%= number_with_precision(@service.price, precision: 2) %></h2>
+     </div>
 
-      <div class="mb-6">
-        <h2 class="text-xl font-semibold mb-2">Categoria</h2>
-        <p class="text-gray-700"><%= @service.category %></p>
-      </div>
+     <div class="mb-4">
+       <h3>Categoria</h3>
+       <p><%= @service.category %></p>
+     </div>
 
-      <% if @service.description.present? %>
-        <div class="mb-6">
-          <h2 class="text-xl font-semibold mb-2">Sobre o Serviço</h2>
-          <p class="text-gray-700"><%= @service.description %></p>
-        </div>
-      <% end %>
+     <% if @service.description.present? %>
+       <div class="mb-4">
+         <h3>Sobre o Serviço</h3>
+         <p><%= @service.description %></p>
+       </div>
+     <% end %>
 
-      <div class="border-t pt-6">
-        <div class="flex items-center mb-4">
-          <div>
-            <h3 class="text-xl font-semibold"><%= @service.user.email %></h3>
-            <p class="text-gray-600">Chef Profissional</p>
-          </div>
-        </div>
+     <div class="border-top pt-4">
+       <div class="mb-3">
+         <h3><%= @service.user.email %></h3>
+         <p class="text-muted">Chef Profissional</p>
+       </div>
 
-        <div class="flex space-x-4">
-          <% if @service.user == current_user %>
-            <%= link_to edit_service_path(@service), class: "inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition" do %>
-              <i class="fas fa-edit mr-2"></i>Editar Serviço
-            <% end %>
+       <div class="d-flex gap-3">
+         <% if @service.user == current_user %>
+           <%= link_to edit_service_path(@service), class: "btn btn-primary" do %>
+             <i class="fas fa-edit me-2"></i>Editar
+           <% end %>
 
-            <%= link_to service_path(@service),
-                data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir este serviço?" },
-                class: "inline-block bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition" do %>
-              <i class="fas fa-trash mr-2"></i>Excluir
-            <% end %>
-          <% else %>
-            <%= link_to new_service_booking_path(@service), class: "inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition" do %>
-              <i class="fas fa-calendar-plus mr-2"></i>Fazer Reserva
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+           <%= link_to service_path(@service),
+               data: { turbo_method: :delete, turbo_confirm: "Confirma exclusão?" },
+               class: "btn btn-danger" do %>
+             <i class="fas fa-trash me-2"></i>Excluir
+           <% end %>
+         <% else %>
+           <%= link_to new_service_booking_path(@service), class: "btn btn-success" do %>
+             <i class="fas fa-calendar-plus me-2"></i>Reservar
+           <% end %>
+         <% end %>
+       </div>
+     </div>
+   </div>
+ </div>
 </div>

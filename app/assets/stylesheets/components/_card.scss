@@ -1,4 +1,5 @@
-.card {
+// Card para index apenas
+.card:not(.card-details) {
   transition: transform 0.2s;
   margin-bottom: 20px;
   background: #ffffff9c;
@@ -18,7 +19,6 @@
     .btn-primary {
       background: #FAF0E6;
       color: #2F4F4F;
-      border: none;
     }
   }
 
@@ -26,6 +26,28 @@
     background: #2F4F4F;
     color: #FAF0E6;
     border: none;
+  }
+}
+
+// Card para show - completamente separado
+.card-details {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff9c;
+  border: 2px solid #2F4F4F;
+  color: #2F4F4F;
+
+  .btn {
+    &.btn-primary, &.btn-danger, &.btn-success {
+      background: #2F4F4F;
+      color: #FAF0E6;
+      border: 2px solid #2F4F4F;
+
+      &:hover {
+        background: #FAF0E6;
+        color: #2F4F4F;
+      }
+    }
   }
 }
 
