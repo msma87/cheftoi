@@ -1,8 +1,7 @@
-
-    <h1>Oferecemos os seguintes servicos</h1>
-      <% @services.each do |service| %>
-            <%= service.title%>
-            <%= service.category%>
-            <%= service.price%>
-            <%= service.user.id%> 
-     <%end%>
+<h1>Oferecemos os seguintes serviços</h1>
+<% @services.each do |service| %>
+    <%= service.title %>
+    <%= service.category %>
+    <%= service.price %>
+    <%= service.user.id %>
+<% end %>
