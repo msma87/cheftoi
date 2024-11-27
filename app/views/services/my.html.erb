@@ -1,8 +1,14 @@
-<h1> Seguem os detalhes dos servicos desse chefe</h1>
-      <% @services.each do |service| %>
-          <%= service.title%>
-          <%= service.category%>
-          <%= service.price%>
-          <%= service.photo%>
-          <%= service.user.id%>
-      <% end %>
+<h1>Meus Serviços de Chef</h1>
+<% if @services.any? %>
+  <% @services.each do |service| %>
+    <%= service.title %>
+    <%= service.category %>
+    <%= service.price %>
+    <%= service.photo%>
+    <%= service.user.id %>
+  <% end %>
+<% else %>
+  <p>Você ainda não cadastrou nenhum serviço.</p>
+<% end %>
+
+<%= link_to "Adicionar Novo Serviço", new_service_path %>
