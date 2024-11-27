@@ -4,10 +4,12 @@
     <%= service.title %>
     <%= service.category %>
     <%= service.price %>
+    <%= service.photo%>
     <%= service.user.id %>
   <% end %>
 <% else %>
   <p>Você ainda não cadastrou nenhum serviço.</p>
 <% end %>
+
 
 <%= link_to "Adicionar Novo Serviço", new_service_path %>

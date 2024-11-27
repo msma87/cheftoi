@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ChefToi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>ChefToi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body>
-  <%# removido a class notice e alert pq já temos o render do flash no _flashes - Máira %>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+<body class="d-flex flex-column min-vh-100">
+  <%# Navbar compartilhada %>
+  <%= render "shared/navbar" %>
+
+  <%# Renderização dos flashes (alertas e notificações) %>
+  <%= render "shared/flashes" %>
+
+  <%# Conteúdo principal da página %>
+  <main class="flex-grow-1">
     <div class="global-background">
       <%= yield %>
     </div>
-  </body>
+  </main>
+
+  <%# Footer fixado no final da página %>
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="footer-copyright">
+      ChefToi <i class="fa-solid fa-utensils"></i>
+    </div>
+  </footer>
+</body>
 </html>
