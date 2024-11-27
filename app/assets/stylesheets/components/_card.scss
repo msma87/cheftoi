@@ -1,0 +1,34 @@
+.card {
+  transition: transform 0.2s;
+  margin-bottom: 20px;
+  background: #ffffff9c;
+  border: 2px solid #2F4F4F;
+  color: #2F4F4F;
+  max-width: 250px;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: #2F4F4F;
+    color: #FAF0E6;
+
+    .card-title, .card-subtitle {
+      color: #FAF0E6;
+    }
+
+    .btn-primary {
+      background: #FAF0E6;
+      color: #2F4F4F;
+      border: none;
+    }
+  }
+
+  .btn-primary {
+    background: #2F4F4F;
+    color: #FAF0E6;
+    border: none;
+  }
+}
+
+.col-md-4 {
+  padding: 15px;
+}
