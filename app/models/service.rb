@@ -3,6 +3,7 @@ class Service < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :users, through: :bookings
   belongs_to :user
+  has_one_attached :photo
 
 
   # Validações de title, category e price
