@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home]
 
   def home
   end
@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def book_service
-  # Aqui você pode adicionar lógica ou apenas renderizar a view correspondente
+    @services = Service.all
   end
 
 end

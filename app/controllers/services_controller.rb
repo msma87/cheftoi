@@ -1,6 +1,5 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
   before_action :verify_service_owner, only: [:edit, :update, :destroy]
 
   def index
