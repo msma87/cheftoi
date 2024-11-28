@@ -19,3 +19,23 @@ pt-BR:
               greater_than: "O preço deve ser maior que zero"
             description:
               blank: "A descrição não pode ficar em branco"
+
+  devise:
+    failure:
+      unauthenticated: "Você precisa estar autenticado para acessar esta página."
+      user:
+        unauthenticated: "Você precisa estar autenticado como usuário para acessar esta página."
+    sessions:
+      signed_in: "Login efetuado com sucesso."
+      signed_out: "Logout efetuado com sucesso."
+      already_signed_out: "Você já efetuou o logout."
+    passwords:
+      send_instructions: "Você receberá instruções para redefinir sua senha em instantes."
+      updated: "Sua senha foi alterada com sucesso."
+      updated_not_active: "Sua senha foi alterada com sucesso, mas sua conta ainda não está ativa."
+    registrations:
+      signed_up: "Cadastro efetuado com sucesso."
+      signed_up_but_inactive: "Você se cadastrou com sucesso. Contudo, sua conta ainda não foi ativada."
+      signed_up_but_locked: "Você se cadastrou com sucesso. Contudo, sua conta está bloqueada."
+      updated: "Sua conta foi atualizada com sucesso."
+      destroyed: "Conta excluída com sucesso."
