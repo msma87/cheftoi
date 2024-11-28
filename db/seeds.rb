@@ -4,6 +4,7 @@ User.destroy_all
 
 # Criando usuários
 users = [
+  { email: "admin@admin.com", password: "123456" },
   { email: "aliceveiga@gmail.com", password: "password" },
   { email: "brunomartins@gmail.com", password: "password" },
   { email: "carlaprieto@gmail.com", password: "password" }

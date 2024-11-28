@@ -1,0 +1,38 @@
+/* Remove qualquer comportamento de foco nos inputs */
+.form-control:focus {
+  // background-color: transparent;
+  border-color: #ccc;
+  box-shadow: none;
+  color: #333;
+}
+
+/* Remove qualquer estilo extra para botões de envio */
+.btn {
+  box-shadow: none;               /* Remove a sombra ao clicar */
+  outline: none;                  /* Remove o contorno ao clicar */
+  border: 1px solid #ccc;        /* Define uma borda neutra */
+  background-color: transparent; /* Deixa o fundo transparente (ou use a cor que preferir) */
+  color: #333;                    /* Cor neutra para o texto do botão */
+}
+
+/* Remove qualquer estilo extra em links */
+.btn-link {
+  color: #333;                    /* Cor neutra para os links */
+  text-decoration: none;          /* Remove o sublinhado */
+  background-color: transparent; /* Deixa o fundo transparente */
+}
+
+/* Opcional: Remove a estilização dos labels */
+.control-label {
+  color: #333;                    /* Cor neutra para os labels */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
+
+input[type="number"] {
+ -moz-appearance: textfield;
+}
