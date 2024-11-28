@@ -1,53 +1,76 @@
-// Card para index apenas
+// Variables
+$dark-color: #2F4F4F;
+$light-color: #FAF0E6;
+$bg-color: #ffffff9c;
+
+// Base card styles
+.card-base {
+  background: $bg-color;
+  border: 2px solid $dark-color;
+  color: $dark-color;
+
+  .card-title, .card-subtitle {
+    color: $dark-color;
+  }
+
+  .btn {
+    &.btn-primary, &.btn-danger, &.btn-success {
+      background: $dark-color;
+      color: $light-color;
+      border: 2px solid $dark-color;
+
+      &:hover {
+        background: $light-color;
+        color: $dark-color;
+      }
+    }
+  }
+}
+
+// Index card
 .card:not(.card-details) {
+  @extend .card-base;
   transition: transform 0.2s;
   margin-bottom: 20px;
-  background: #ffffff9c;
-  border: 2px solid #2F4F4F;
-  color: #2F4F4F;
   max-width: 250px;
 
   &:hover {
     transform: translateY(-5px);
-    background: #2F4F4F;
-    color: #FAF0E6;
+    background: $dark-color;
+    color: $light-color;
 
     .card-title, .card-subtitle {
-      color: #FAF0E6;
+      color: $light-color;
     }
 
     .btn-primary {
-      background: #FAF0E6;
-      color: #2F4F4F;
+      background: $light-color;
+      color: $dark-color;
     }
-  }
-
-  .btn-primary {
-    background: #2F4F4F;
-    color: #FAF0E6;
-    border: none;
   }
 }
 
-// Card para show - completamente separado
+// Show card
 .card-details {
+  @extend .card-base;
   max-width: 800px;
   margin: 0 auto;
-  background: #ffffff9c;
-  border: 2px solid #2F4F4F;
-  color: #2F4F4F;
+  padding: 2rem;
 
-  .btn {
-    &.btn-primary, &.btn-danger, &.btn-success {
-      background: #2F4F4F;
-      color: #FAF0E6;
-      border: 2px solid #2F4F4F;
+  .card-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
 
-      &:hover {
-        background: #FAF0E6;
-        color: #2F4F4F;
-      }
-    }
+  h3 {
+    color: $dark-color;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .text-success {
+    color: $dark-color !important;
+    font-weight: 600;
   }
 }
 

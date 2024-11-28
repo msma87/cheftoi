@@ -7,6 +7,9 @@ class ServicesController < ApplicationController
     @services = Service.all
   end
 
+  def show
+  end
+
   def my
     @services = Service.where(user: current_user)
   end
