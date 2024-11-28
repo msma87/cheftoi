@@ -9,12 +9,13 @@ class Service < ApplicationRecord
   # Validações de title, category e price
   validates :title,
     presence: true,
-    length: { maximum: 100, message: "não pode ter mais de 100 caracteres" },
-    uniqueness: { case_sensitive: false, message: "já está em uso" }
+    length: { maximum: 100, message: "Máximo 100 caracteres" },
+    uniqueness: { case_sensitive: false, message: "Título já em uso" }
   validates :category, presence: :true
+  validates :description, presence: :true
   validates :price,
     presence: true,
-    numericality: { greater_than: 0, less_than: 10_000, message: "deve ser maior que 0 e menor que 10.000" }
+    numericality: { greater_than: 0, message: "Deve ser maior que zero"}
 
 
   # Callback para normalizar os títulos

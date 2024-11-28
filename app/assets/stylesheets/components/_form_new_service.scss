@@ -1,6 +1,6 @@
 /* Remove qualquer comportamento de foco nos inputs */
 .form-control:focus {
-  background-color: transparent;  
+  // background-color: transparent;
   border-color: #ccc;
   box-shadow: none;
   color: #333;
@@ -25,4 +25,14 @@
 /* Opcional: Remove a estilização dos labels */
 .control-label {
   color: #333;                    /* Cor neutra para os labels */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
+
+input[type="number"] {
+ -moz-appearance: textfield;
 }

@@ -23,9 +23,10 @@ class ServicesController < ApplicationController
     @service.user = current_user
 
     if @service.save
-      redirect_to service_path(@service)
+      redirect_to service_path(@service), notice: 'Serviço criado com sucesso.'
     else
-      render :new
+      flash.now[:alert] = 'Por favor, preencha todos os campos obrigatórios.'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,7 +38,8 @@ class ServicesController < ApplicationController
     if @service.update(service_params)
       redirect_to service_path(@service), notice: 'Serviço atualizado com sucesso.'
     else
-      render :edit
+      flash.now[:alert] = 'Por favor, preencha todos os campos obrigatórios.'
+      render :edit, status: :unprocessable_entity
     end
   end
 
