@@ -1,15 +1,31 @@
-<h1>Meus Serviços de Chef</h1>
-<% if @services.any? %>
-  <% @services.each do |service| %>
-    <%= service.title %>
-    <%= service.category %>
-    <%= service.price %>
-    <%= service.photo%>
-    <%= service.user.id %>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Meus Serviços de Chef</h1>
+    <%= link_to new_service_path, class: "btn btn-primary" do %>
+      <i class="fas fa-plus me-2"></i>Adicionar Novo Serviço
+    <% end %>
+  </div>
+
+  <% if @services.any? %>
+    <div class="row">
+      <% @services.each do |service| %>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= service.title %></h5>
+              <p class="card-subtitle"><%= service.category %></p>
+              <h6 class="card-subtitle mb-3">R$ <%= number_with_precision(service.price, precision: 2) %></h6>
+              <%= link_to "Ver detalhes", service_path(service), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="card card-details">
+      <div class="card-body text-center">
+        <p class="mb-0">Você ainda não cadastrou nenhum serviço.</p>
+      </div>
+    </div>
   <% end %>
-<% else %>
-  <p>Você ainda não cadastrou nenhum serviço.</p>
-<% end %>
-
-
-<%= link_to "Adicionar Novo Serviço", new_service_path %>
+</div>
