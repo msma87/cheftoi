@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4 text-success">Reserva Confirmada!</h2>
+
+  <div class="card card-details mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+      <h3 class="card-title">Serviço: <%= @service.title %></h3>
+      <p><strong>Data:</strong> <%= @booking.date.strftime("%d/%m/%Y") %></p>
+      <p><strong>Preço:</strong> R$ <%= number_with_precision(@service.price, precision: 2) %></p>
+      <p><strong>Reservado por:</strong> <%= current_user.email %></p>
+      <p><strong>Prestador:</strong> <%= @service.user.email %></p>
+
+      <div class="text-center mt-4">
+        <%= link_to "Voltar ao Serviço", service_path(@service), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
