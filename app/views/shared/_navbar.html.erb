@@ -15,9 +15,10 @@
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "imagens/white-icon.png", class: "avatar", alt: "dropdown menu", style: "height: 36px;" %>
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Sobre", "#", class: "dropdown-item" %>
-              <%= link_to "Sair", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">          
+              <%= link_to "Experiências", "/services", class: "dropdown-item" %>
+              <%= link_to "Meus serviços", "/services/my", class: "dropdown-item" %>
+              <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
