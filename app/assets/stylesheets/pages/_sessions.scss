@@ -1,0 +1,41 @@
+  /* Centraliza o formulário na tela */
+  .form-container {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos dentro do contêiner na vertical */
+    justify-content: center; /* Centraliza o formulário verticalmente */
+    align-items: center; /* Centraliza o formulário horizontalmente */
+    min-height: 100vh; /* Define que o contêiner ocupa toda a altura da tela */
+    padding: 20px; /* Espaçamento interno para evitar que o conteúdo fique colado nas bordas */
+  }
+
+  /* Estilização adicional para o formulário */
+  form {
+    background: #ffffff9c;
+    border: 2px solid #2F4F4F;
+    color: #2F4F4F;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Garante que o formulário respeite o tamanho máximo */
+  }
+
+  /* Estilização do botão */
+  .btn-submit {
+    display: inline-block;
+    background-color: #4CAF50; /* Cor de fundo (verde) */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Faz o botão ocupar toda a largura do formulário */
+  }
+
+  .btn-submit:hover {
+    background-color: #45a049; /* Cor ao passar o mouse */
+  }

@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "imagens/logo.png" %>
+      <%= image_tag "imagens/logo.png", style: "height: 40px;" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,21 +9,21 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "imagens/white-icon.png", class: "avatar", alt: "dropdown menu" %>
-          </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              
-              <%= link_to "Sobre", "#", class: "dropdown-item" %>
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag "imagens/white-icon.png", class: "avatar", alt: "dropdown menu", style: "height: 36px;" %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">          
+              <%= link_to "Experiências", "/services", class: "dropdown-item" %>
+              <%= link_to "Meus serviços", "/services/my", class: "dropdown-item" %>
               <%= link_to "Sair", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-             <%= link_to "Login", new_user_session_path, class: "nav-link", style: "color: white;" %>
+            <%= link_to "Entrar", new_user_session_path, class: "nav-link", style: "color: white; font-size: 0.9rem;" %>
           </li>
         <% end %>
       </ul>

@@ -1,28 +1,58 @@
-/* Remove qualquer comportamento de foco nos inputs */
+/* Card styling */
+.card-details {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+
+/* Form inputs */
+.form-control {
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  padding: 10px 12px;
+}
+
 .form-control:focus {
-  background-color: transparent;  
-  border-color: #ccc;
-  box-shadow: none;
-  color: #333;
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
 }
 
-/* Remove qualquer estilo extra para botões de envio */
-.btn {
-  box-shadow: none;               /* Remove a sombra ao clicar */
-  outline: none;                  /* Remove o contorno ao clicar */
-  border: 1px solid #ccc;        /* Define uma borda neutra */
-  background-color: transparent; /* Deixa o fundo transparente (ou use a cor que preferir) */
-  color: #333;                    /* Cor neutra para o texto do botão */
-}
-
-/* Remove qualquer estilo extra em links */
-.btn-link {
-  color: #333;                    /* Cor neutra para os links */
-  text-decoration: none;          /* Remove o sublinhado */
-  background-color: transparent; /* Deixa o fundo transparente */
-}
-
-/* Opcional: Remove a estilização dos labels */
+/* Labels */
 .control-label {
-  color: #333;                    /* Cor neutra para os labels */
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 20px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.btn-link {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Alignment */
+h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }

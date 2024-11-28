@@ -1,0 +1,49 @@
+pt-BR:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %b"
+      long: "%d de %B de %Y"
+    day_names: [Domingo, Segunda-feira, Terça-feira, Quarta-feira, Quinta-feira, Sexta-feira, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+      models:
+        service:
+          attributes:
+            title:
+              blank: "O título não pode ficar em branco"
+            category:
+              blank: "A categoria não pode ficar em branco"
+            price:
+              blank: "O preço não pode ficar em branco"
+              not_a_number: "O preço deve ser um número"
+              greater_than: "O preço deve ser maior que zero"
+            description:
+              blank: "A descrição não pode ficar em branco"
+  devise:
+    failure:
+      invalid: " %{authentication_keys} ou senha inválidos."
+      unauthenticated: "Você precisa fazer um cadastro ou estar logado para continuar."
+    sessions:
+      signed_in: "Login efetuado com sucesso."
+      signed_out: "Logout efetuado com sucesso."
+      user:
+        signed_out: "Logout do usuário efetuado com sucesso."
+    passwords:
+      send_instructions: "Você receberá instruções para redefinir sua senha em instantes."
+      updated: "Sua senha foi alterada com sucesso."
+      updated_not_active: "Sua senha foi alterada com sucesso, mas sua conta ainda não está ativa."
+    registrations:
+      signed_up: "Cadastro efetuado com sucesso."
+      signed_up_but_inactive: "Você se cadastrou com sucesso. Contudo, sua conta ainda não foi ativada."
+      signed_up_but_locked: "Você se cadastrou com sucesso. Contudo, sua conta está bloqueada."
+      updated: "Sua conta foi atualizada com sucesso."
+      destroyed: "Conta excluída com sucesso."

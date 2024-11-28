@@ -1,38 +1,49 @@
-<%= simple_form_for @service, html: { multipart: true, class: 'd-flex justify-content-center align-items-center vh-100' } do |form| %>
-  <div class="card shadow-lg p-4" style="width: 500px;">
-    <!-- Título do serviço -->
-    <div class="form-group">
-      <%= form.input :title, label: 'Título do serviço', input_html: { class: 'form-control form-control-sm' } %>
-    </div>
+<div class="container-fluid p-4">
+    <div class="row justify-content-center">
+      <div class="col-6">
+  <%= simple_form_for @service, html: { multipart: true } do |form| %>
+          <h1 class="text-center mb-4">Novo Serviço</h1>
 
-    <!-- Categoria -->
-    <div class="form-group">
-      <%= form.input :category, label: 'Categoria', input_html: { class: 'form-control form-control-sm' } %>
-    </div>
+          <%= form.input :title,
+              label: 'Título do serviço',
+              error: 'O título não pode ficar em branco',
+              required: true,
+              wrapper_html: { class: 'mb-3' } %>
 
-    <!-- Preço -->
-    <div class="form-group">
-      <%= form.input :price, label: 'Preço', as: :integer, input_html: { class: 'form-control form-control-sm' } %>
-    </div>
+          <%= form.input :category,
+              label: 'Categoria',
+              error: 'A categoria não pode ficar em branco',
+              required: true,
+              wrapper_html: { class: 'mb-3' } %>
 
-    <!-- Descrição -->
-    <div class="form-group">
-      <%= form.input :description, label: 'Descrição', input_html: { class: 'form-control form-control-sm' } %>
-    </div>
+          <%= form.input :price,
+              label: 'Preço',
+              as: :float,
+              input_html: {
+                step: '0.01',
+                min: '0',
+                pattern: '^\d*\.?\d*$'
+              },
+              error: 'O preço deve ser um número maior que zero',
+              required: true,
+              wrapper_html: { class: 'mb-3' } %>
 
-    <!-- Foto -->
-    <div class="form-group">
-      <%= form.input :photo, as: :file, label: 'Foto do serviço', input_html: { class: 'form-control form-control-sm' } %>
-    </div>
+          <%= form.input :description,
+              label: 'Descrição',
+              error: 'A descrição não pode ficar em branco',
+              required: true,
+              wrapper_html: { class: 'mb-3' } %>
 
-    <!-- Botão de envio -->
-    <div class="form-group text-center mt-4">
-      <%= form.button :submit, 'Salvar', class: 'btn btn-info' %>
-    </div>
-  </div>
-<% end %>
+          <%= form.input :photo,
+              as: :file,
+              label: 'Foto do serviço',
+              wrapper_html: { class: 'mb-4' } %>
 
-<!-- Link de volta -->
-<div class="text-center mt-4">
-  <%= link_to "< Voltar", services_path, class: 'btn btn-link' %>
+          <div class="d-flex justify-content-between">
+            <%= link_to "Voltar", services_path, class: 'btn btn-link' %>
+            <%= form.button :submit, 'Salvar', class: 'btn btn-primary px-4' %>
+          </div>
+  <% end %>
+        </div>
+      </div>
 </div>

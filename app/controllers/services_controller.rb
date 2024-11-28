@@ -1,10 +1,15 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
   before_action :verify_service_owner, only: [:edit, :update, :destroy]
 
   def index
-    @services = Service.all
+    if params[:category].present?
+      # Busca serviços pela categoria (case-insensitive)
+      @services = Service.where("LOWER(category) LIKE ?", "%#{params[:category].downcase}%")
+    else
+      # Mostra todos os serviços caso não haja busca
+      @services = Service.all
+    end
   end
 
   def show
@@ -23,9 +28,10 @@ class ServicesController < ApplicationController
     @service.user = current_user
 
     if @service.save
-      redirect_to service_path(@service)
+      redirect_to service_path(@service), notice: 'Serviço criado com sucesso.'
     else
-      render :new
+      flash.now[:alert] = 'Por favor, preencha todos os campos obrigatórios.'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -37,14 +43,23 @@ class ServicesController < ApplicationController
     if @service.update(service_params)
       redirect_to service_path(@service), notice: 'Serviço atualizado com sucesso.'
     else
-      render :edit
+      flash.now[:alert] = 'Por favor, preencha todos os campos obrigatórios.'
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    if @service.user == current_user # Adiciona verificação de proprietário
+    # Verifica se o usuário atual é o proprietário do serviço
+    if @service.user == current_user
       if @service.destroy
-        redirect_to services_path, notice: 'Serviço deletado com sucesso.'
+        # Recupera a "página anterior anterior" do histórico de navegação
+        previous_previous_page = session[:navigation_history]&.dig(-3)
+
+        if previous_previous_page
+          redirect_to previous_previous_page, notice: 'Serviço deletado com sucesso.'
+        else
+          redirect_to services_path, notice: 'Serviço deletado com sucesso, mas não foi possível determinar a página anterior.'
+        end
       else
         redirect_to service_path(@service), alert: 'Não foi possível deletar o serviço.'
       end
@@ -52,6 +67,7 @@ class ServicesController < ApplicationController
       redirect_to service_path(@service), alert: 'Você não tem permissão para deletar este serviço.'
     end
   end
+
 
   private
 
