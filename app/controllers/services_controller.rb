@@ -44,9 +44,17 @@ class ServicesController < ApplicationController
   end
 
   def destroy
-    if @service.user == current_user # Adiciona verificação de proprietário
+    # Verifica se o usuário atual é o proprietário do serviço
+    if @service.user == current_user
       if @service.destroy
-        redirect_to services_path, notice: 'Serviço deletado com sucesso.'
+        # Recupera a "página anterior anterior" do histórico de navegação
+        previous_previous_page = session[:navigation_history]&.dig(-3)
+
+        if previous_previous_page
+          redirect_to previous_previous_page, notice: 'Serviço deletado com sucesso.'
+        else
+          redirect_to services_path, notice: 'Serviço deletado com sucesso, mas não foi possível determinar a página anterior.'
+        end
       else
         redirect_to service_path(@service), alert: 'Não foi possível deletar o serviço.'
       end
@@ -54,6 +62,7 @@ class ServicesController < ApplicationController
       redirect_to service_path(@service), alert: 'Você não tem permissão para deletar este serviço.'
     end
   end
+
 
   private
 
