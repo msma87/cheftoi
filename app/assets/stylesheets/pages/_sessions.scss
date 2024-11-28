@@ -10,11 +10,12 @@
 
   /* Estilização adicional para o formulário */
   form {
-    background: white;
+    background: #ffffff9c;
+    border: 2px solid #2F4F4F;
+    color: #2F4F4F;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px; /* Largura máxima do formulário */
     width: 100%; /* Garante que o formulário respeite o tamanho máximo */
   }
 
