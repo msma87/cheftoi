@@ -1,16 +1,57 @@
 <div class="container mt-4">
-  <h2 class="text-center mb-4 text-success">Reserva Confirmada!</h2>
-
-  <div class="card card-details mx-auto" style="max-width: 600px;">
+  <div class="card card-details" style="max-width: 800px; margin: 0 auto;">
     <div class="card-body">
-      <h3 class="card-title">Serviço: <%= @service.title %></h3>
-      <p><strong>Data:</strong> <%= @booking.date.strftime("%d/%m/%Y") %></p>
-      <p><strong>Preço:</strong> R$ <%= number_with_precision(@service.price, precision: 2) %></p>
-      <p><strong>Reservado por:</strong> <%= current_user.email %></p>
-      <p><strong>Prestador:</strong> <%= @service.user.email %></p>
+      <h1 class="card-title mb-4 text-center">✨ Sua Experiência Gastronômica Está Confirmada! ✨</h1>
 
-      <div class="text-center mt-4">
-        <%= link_to "Voltar ao Serviço", service_path(@service), class: "btn btn-primary" %>
+      <p class="text-center fs-5 text-muted">
+        Prepare-se para uma jornada de sabores inesquecível, cuidadosamente elaborada para encantar o seu paladar.
+      </p>
+
+      <div class="mb-4">
+        <h3 class="text-muted">📅 Data da Experiência</h3>
+        <h2 class="text-success"><%= l(@booking.date, format: :long) %></h2>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="text-muted">🍽 Serviço Escolhido</h3>
+        <p class="fs-5"><%= @booking.service.title %></p>
+      </div>
+
+      <% if @booking.service.description.present? %>
+        <div class="mb-4">
+          <h3 class="text-muted">Sobre o Serviço</h3>
+          <p class="fs-5">
+            <%= @booking.service.description %>
+          </p>
+        </div>
+      <% end %>
+
+      <div class="border-top pt-4">
+        <div class="mb-3">
+          <h3 class="text-muted">👨‍🍳 Contato do Chef</h3>
+          <h5><%= @booking.service.user.email %></h5>
+          <p class="text-muted">
+            Nosso chef profissional terá o maior prazer em proporcionar uma experiência memorável para você e seus convidados.
+          </p>
+        </div>
+
+        <p class="text-muted fs-6">
+          Qualquer dúvida ou necessidade especial, não hesite em entrar em contato. Estamos aqui para garantir que sua experiência seja perfeita.
+        </p>
+
+        <div class="d-flex gap-3">
+          <%= link_to service_path(@service), class: "btn btn-outline-secondary" do %>
+            <i class="fas fa-arrow-left me-2"></i>Voltar
+          <% end %>
+
+          <% if @booking.user == current_user %>
+            <%= link_to service_booking_path(@service, @booking),
+                data: { turbo_method: :delete, turbo_confirm: "Confirma a exclusão da sua reserva? Estamos tristes em vê-lo partir, mas respeitamos sua decisão." },
+                class: "btn btn-outline-danger" do %>
+              <i class="fas fa-trash me-2"></i>Cancelar Reserva
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
