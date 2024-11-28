@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :verify_service_owner, only: [:edit, :update, :destroy]
 
   def index
     @services = Service.all
@@ -28,6 +29,18 @@ class ServicesController < ApplicationController
     end
   end
 
+  def edit
+    # view de edit será renderizada automaticamente
+  end
+
+  def update
+    if @service.update(service_params)
+      redirect_to service_path(@service), notice: 'Serviço atualizado com sucesso.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     if @service.user == current_user # Adiciona verificação de proprietário
       if @service.destroy
@@ -45,6 +58,12 @@ class ServicesController < ApplicationController
   def set_service
     @service = Service.find_by(id: params[:id])
     redirect_to services_path, alert: 'Service not found' if @service.nil?
+  end
+
+  def verify_service_owner
+    unless @service.owned_by?(current_user)
+      redirect_to services_path, alert: 'Você não tem permissão para editar este serviço.'
+    end
   end
 
   def service_params
