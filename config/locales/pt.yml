@@ -19,3 +19,7 @@ pt-BR:
               greater_than: "O preço deve ser maior que zero"
             description:
               blank: "A descrição não pode ficar em branco"
+  devise:
+    failure:
+      invalid: " %{authentication_keys} ou senha inválidos."
+      unauthenticated: "Você precisa fazer um cadastro ou estar logado para continuar."
