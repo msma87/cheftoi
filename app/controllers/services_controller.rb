@@ -3,7 +3,13 @@ class ServicesController < ApplicationController
   before_action :verify_service_owner, only: [:edit, :update, :destroy]
 
   def index
-    @services = Service.all
+    if params[:category].present?
+      # Busca serviços pela categoria (case-insensitive)
+      @services = Service.where("LOWER(category) LIKE ?", "%#{params[:category].downcase}%")
+    else
+      # Mostra todos os serviços caso não haja busca
+      @services = Service.all
+    end
   end
 
   def show

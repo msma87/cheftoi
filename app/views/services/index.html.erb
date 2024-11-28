@@ -1,22 +1,45 @@
 <div class="container mt-4">
   <h1 class="mb-4">Experiências disponíveis</h1>
 
-  <div class="row">
-    <% @services.each do |service| %>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <%# <% if service.photo.present? %>
-            <%# <%= image_tag service.photo, class: "card-img-top", style: "height: 200px; object-fit: cover;" %>
-          <%# <% end %>
+  <!-- Campo de busca centralizado -->
+  <div class="d-flex justify-content-center mb-4">
+    <%= form_with url: services_path, method: :get, local: true, class: "d-flex align-items-center" do |form| %>
+      <%= form.text_field :category, placeholder: "Buscar por categoria", class: "form-control me-2", style: "width: 250px; height: 40px; padding: 5px 10px; font-size: 1rem; border-radius: 8px;" %>
+      <%= form.submit "Buscar", class: "btn btn-success", style: "height: 40px; font-size: 1rem; padding: 0 15px; border-radius: 8px;" %>
+    <% end %>
+  </div>
 
-          <div class="card-body">
-            <h5 class="card-title"><%= service.title %></h5>
-            <p class="card-subtitle"><%= service.category %></p>
-            <h6 class="card-subtitle mb-3">R$ <%= number_with_precision(service.price, precision: 2) %></h6>
-            <%= link_to "Ver detalhes", service_path(service), class: "btn btn-primary" %>
+  <!-- Exibição da categoria buscada -->
+  <% if params[:category].present? %>
+    <p class="mb-4">Resultados para a categoria: <strong><%= params[:category] %></strong></p>
+  <% end %>
+
+  <div class="row">
+    <% if @services.any? %>
+      <% @services.each do |service| %>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= service.title %></h5>
+              <p class="card-subtitle"><%= service.category %></p>
+              <h6 class="card-subtitle mb-3">R$ <%= number_with_precision(service.price, precision: 2) %></h6>
+              <%= link_to "Ver detalhes", service_path(service), class: "btn btn-primary" %>
+            </div>
           </div>
         </div>
+      <% end %>
+    <% else %>
+      <div class="col-12 text-center">
+        <p class="text-center">Nenhuma experiência encontrada.</p>
+        <%= link_to "Voltar", services_path, class: "btn btn-secondary mt-3" %>
       </div>
     <% end %>
   </div>
+
+  <!-- Botão de voltar (caso a categoria tenha sido encontrada) -->
+  <% if params[:category].present? && @services.any? %>
+    <div class="text-center mt-4">
+      <%= link_to "Voltar", services_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
 </div>
