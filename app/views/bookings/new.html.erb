@@ -1,25 +1,18 @@
-<div class="container mt-4">
-  <h2 class="text-center mb-4">Reservar Serviço: <%= @service.title %></h2>
+<div class="container">
+  <h1>Nova Reserva</h1>
 
-  <%= form_with model: [@service, @booking], local: true do |f| %>
-    <% if @booking.errors.any? %>
-      <div class="alert alert-danger">
-        <ul>
-          <% @booking.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="mb-3">
-      <%= f.label :date, "Data da Reserva", class: "form-label" %>
-      <%= f.date_field :date, class: "form-control", required: true %>
+  <%= simple_form_for [@service, @booking] do |f| %>
+    <div class="form-inputs">
+      <%= f.input :date,
+                  as: :date,
+                  html5: true,
+                  label: 'Data da Reserva' %>
     </div>
 
-    <div class="text-center">
-      <%= f.submit "Confirmar Reserva", class: "btn btn-success" %>
-      <%= link_to "Cancelar", service_path(@service), class: "btn btn-secondary" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Confirmar Reserva", class: "btn btn-primary" %>
     </div>
   <% end %>
+
+  <%= link_to 'Voltar', service_path(@service), class: "btn btn-secondary" %>
 </div>
