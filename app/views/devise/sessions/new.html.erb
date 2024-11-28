@@ -1,64 +1,21 @@
-<style>
-  /* Centraliza o formulário na tela */
-  .form-container {
-    display: flex;
-    flex-direction: column; /* Alinha os elementos dentro do contêiner na vertical */
-    justify-content: center; /* Centraliza o formulário verticalmente */
-    align-items: center; /* Centraliza o formulário horizontalmente */
-    min-height: 100vh; /* Define que o contêiner ocupa toda a altura da tela */
-    padding: 20px; /* Espaçamento interno para evitar que o conteúdo fique colado nas bordas */
-  }
-
-  /* Estilização adicional para o formulário */
-  form {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px; /* Largura máxima do formulário */
-    width: 100%; /* Garante que o formulário respeite o tamanho máximo */
-  }
-
-  /* Estilização do botão */
-  .btn-submit {
-    display: inline-block;
-    background-color: #4CAF50; /* Cor de fundo (verde) */
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Faz o botão ocupar toda a largura do formulário */
-  }
-
-  .btn-submit:hover {
-    background-color: #45a049; /* Cor ao passar o mouse */
-  }
-</style>
-
 <div class="form-container">
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <%= f.input :email,
+              label: "Seu e-mail",
+              required: false,
+              autofocus: true,
+              input_html: { autocomplete: "email" } %>
+          <%= f.input :password,
+              label: "Sua senha",
+              required: false,
+              input_html: { autocomplete: "current-password" } %>
+          <%= f.input :remember_me, as: :boolean, label: "Lembrar meus dados" if devise_mapping.rememberable? %>
     </div>
 
     <div class="form-actions">
       <!-- Botão estilizado -->
       <%= f.button :submit, "Fazer login", class: "btn-submit" %>
+      <%= link_to "Fazer cadastro", new_registration_path(resource_name), class: "btn-submit btn-submit:hover my-3" %>
     </div>
   <% end %>
-</div>
-
-<%= render "devise/shared/links" %>
