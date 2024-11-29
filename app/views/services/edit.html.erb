@@ -1,21 +1,18 @@
 <div class="container-fluid p-4">
   <div class="row justify-content-center">
     <div class="col-6">
-      <%= simple_form_for @service, html: { class: "w-100", multipart: true } do |form| %>
+      <%= simple_form_for @service, class: "edit-service-form", html: { data: { form_type: 'edit' },  multipart: true } do |form| %>
         <h1 class="text-center mb-4">Editar Experiência</h1>
-
         <%= form.input :title,
             label: 'Título do serviço',
             error: 'O título não pode ficar em branco',
             required: true,
             wrapper_html: { class: 'mb-3' } %>
-
         <%= form.input :category,
             label: 'Categoria',
             error: 'A categoria não pode ficar em branco',
             required: true,
             wrapper_html: { class: 'mb-3' } %>
-
         <%= form.input :price,
             label: 'Preço',
             as: :float,
@@ -27,28 +24,21 @@
             error: 'O preço deve ser um número maior que zero',
             required: true,
             wrapper_html: { class: 'mb-3' } %>
-
         <%= form.input :description,
             label: 'Descrição',
             error: 'A descrição não pode ficar em branco',
             required: true,
             wrapper_html: { class: 'mb-3' } %>
-
         <%= form.input :photo,
             as: :file,
             label: 'Foto do serviço',
             wrapper_html: { class: 'mb-4' } %>
-
         <div class="d-flex justify-content-between">
           <%= form.button :submit, 'Atualizar', class: 'btn btn-primary px-4' %>
           <%= link_to 'Cancelar', service_path(@service), class: 'btn btn-secondary' %>
         </div>
         <%= link_to "Voltar", my_services_path, class: 'btn btn-link' %>
       <% end %>
-    </div>
-    <%# botão de voltar para página anterior %>
-    <div class="text-center mt-4">
-      <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
     </div>
   </div>
 </div>
