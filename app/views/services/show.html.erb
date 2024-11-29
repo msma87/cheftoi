@@ -29,17 +29,17 @@
 
        <div class="d-flex gap-3">
          <% if @service.user == current_user %>
-           <%= link_to edit_service_path(@service), class: "btn btn-primary" do %>
+           <%= link_to edit_service_path(@service), class: "btn btn-primary btn-custom" do %>
              <i class="fas fa-edit me-2"></i>Editar
            <% end %>
 
            <%= link_to service_path(@service),
                data: { turbo_method: :delete, turbo_confirm: "Confirma exclusão?" },
-               class: "btn btn-danger" do %>
+               class: "btn btn-danger btn-dlt" do %>
              <i class="fas fa-trash me-2"></i>Excluir
            <% end %>
          <% else %>
-           <%= link_to new_service_booking_path(@service), class: "btn btn-success" do %>
+           <%= link_to new_service_booking_path(@service), class: "btn btn-success btn-add" do %>
              <i class="fas fa-calendar-plus me-2"></i>Reservar
            <% end %>
          <% end %>
@@ -49,7 +49,7 @@
  </div>
       <%# botão de voltar para página anterior %>
       <div class="text-center mt-4 mb-4">
-        <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
+        <%= link_to '< Voltar', :back , class: 'btn btn-warning btn-custom' %>
       </div>
 
 </div>
