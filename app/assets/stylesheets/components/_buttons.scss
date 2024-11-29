@@ -1,0 +1,25 @@
+.btn-custom {
+  border-radius: $border-radius-xl; // Usa o valor .5rem das variáveis globais
+  color: $blue;              // Define a cor do texto com base no `$body-color`
+  background-color: $info;         // Define a cor de fundo como o valor `$yellow
+
+  &:hover {
+    background-color: darken($info, 10%); // Escurece o amarelo no hover
+    color: $blue;
+    font-weight: bold;                  // Cor de texto clara no hover
+  }
+}
+
+.btn-save {
+  background-color: $blue;
+  color: $info;
+  border-radius: $border-radius-xl;
+}
+
+.btn-dlt {
+  border-radius: $border-radius-xl;
+}
+
+.btn-add {
+  border-radius: $border-radius-xl;
+}
