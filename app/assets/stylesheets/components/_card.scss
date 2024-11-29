@@ -59,16 +59,20 @@ $bg-color: #ffffff9c;
   }
 
 }
-// Show card
 .card-details {
   @extend .card-base;
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
 
-  .card-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+  .card-header {
+    color: $light-color !important;
+
+    .card-title {
+      color: $light-color !important;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   h3 {
@@ -81,7 +85,7 @@ $bg-color: #ffffff9c;
     color: $dark-color !important;
     font-weight: 600;
   }
-}
+ }
 
 .col-md-4 {
   padding: 15px;
