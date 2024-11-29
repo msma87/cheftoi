@@ -17,11 +17,12 @@
   <div class="row">
     <% if @services.any? %>
       <% @services.each do |service| %>
-        <div class="col-md-4">
-          <div class="card h-100" style="border-radius: 8px;">
-            <div class="card-body" style="border-radius: 8px;">
+        <div class="col-md-3">
+          <div class="card" style="border-radius: 8px;", id="centralize">
+            <div class="card-body">
+
               <% if service.photo.attached? %>
-                <div class="card-photo"><%= cl_image_tag service.photo.key, crop: :fill %></div>
+                <div class="card-photo mb-3"><%= cl_image_tag service.photo.key, crop: :fill , width: 300, height: 300 %></div>
               <% end %>
               <h5 class="card-title"><%= service.title %></h5>
               <p class="card-subtitle"><%= service.category %></p>
