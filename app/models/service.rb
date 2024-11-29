@@ -30,4 +30,8 @@ class Service < ApplicationRecord
   def normalize_title
     self.title = title.titleize if title.present?
   end
+
+  def service_params
+    params.require(:service).permit(:title,:category,:price,:photo)
+  end
 end
