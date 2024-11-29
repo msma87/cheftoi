@@ -60,3 +60,8 @@ h1 {
 #new_service{
   max-width: 100%;
 }
+
+[data-form-type='edit'] {
+  max-width: 100% !important;
+  font: 100px;
+}
