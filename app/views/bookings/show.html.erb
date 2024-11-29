@@ -1,8 +1,10 @@
 <div class="container mt-4">
-  <div class="card card-details" style="max-width: 800px; margin: 0 auto;">
-    <div class="card-body">
-      <h1 class="card-title mb-4 text-center">✨ Sua Experiência Gastronômica Está Confirmada! ✨</h1>
+  <div class="card shadow-lg rounded card-details" style="max-width: 800px; margin: 0 auto;">
+    <div class="card-header bg-primary text-white text-center py-3 rounded-top">
+      <h1 class="card-title mb-0">✨ Sua Experiência Gastronômica Está Confirmada! ✨</h1>
+    </div>
 
+    <div class="card-body">
       <p class="text-center fs-5 text-muted">
         Prepare-se para uma jornada de sabores inesquecível, cuidadosamente elaborada para encantar o seu paladar.
       </p>
@@ -19,7 +21,7 @@
 
       <% if @booking.service.description.present? %>
         <div class="mb-4">
-          <h3 class="text-muted">Sobre o Serviço</h3>
+          <h3 class="text-muted">📝 Sobre o Serviço</h3>
           <p class="fs-5">
             <%= @booking.service.description %>
           </p>
@@ -39,19 +41,23 @@
           Qualquer dúvida ou necessidade especial, não hesite em entrar em contato. Estamos aqui para garantir que sua experiência seja perfeita.
         </p>
 
-          <% if @booking.user == current_user %>
-            <%= link_to service_booking_path(@service, @booking),
-                data: { turbo_method: :delete, turbo_confirm: "Confirma a exclusão da sua reserva? Estamos tristes em vê-lo partir, mas respeitamos sua decisão." },
-                class: "btn btn-outline-danger" do %>
-              <i class="fas fa-trash me-2"></i>Cancelar Reserva
-            <% end %>
+        <% if @booking.user == current_user %>
+          <%= link_to service_booking_path(@service, @booking),
+                      data: { turbo_method: :delete, turbo_confirm: "Confirma a exclusão da sua reserva? Estamos tristes em vê-lo partir, mas respeitamos sua decisão." },
+                      class: "btn btn-outline-danger" do %>
+            <i class="fas fa-trash me-2"></i>Cancelar Reserva
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
-  </div>
-  <%# botão de voltar para página anterior %>
-    <div class="text-center mt-4 mb-4">
-      <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
+
+    <div class="card-footer text-center text-muted py-3">
+      <p>Obrigado por escolher nossa experiência gastronômica! 🍴</p>
     </div>
+  </div>
+
+  <%# Botão de voltar para página anterior %>
+  <div class="text-center mt-4 mb-4">
+    <%= link_to 'Voltar', :back, class: 'btn btn-secondary' %>
+  </div>
 </div>
