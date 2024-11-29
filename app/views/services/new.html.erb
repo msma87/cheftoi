@@ -42,8 +42,13 @@
           <div class="d-flex justify-content-between">
             <%= form.button :submit, 'Salvar', class: 'btn btn-primary px-4' %>
           </div>
-          <%= link_to "Voltar", my_services_path, class: 'btn btn-link' %>
   <% end %>
-        </div>
+
+  <%# botão de voltar para página anterior %>
+  <div class="text-center mt-4">
+    <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
+  </div>
+
       </div>
+    </div>
 </div>

@@ -43,9 +43,13 @@
              <i class="fas fa-calendar-plus me-2"></i>Reservar
            <% end %>
          <% end %>
-         <%= link_to "Voltar", my_services_path, class: 'btn btn-link' %>
        </div>
      </div>
    </div>
  </div>
+      <%# botão de voltar para página anterior %>
+      <div class="text-center mt-4 mb-4">
+        <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
+      </div>
+
 </div>
