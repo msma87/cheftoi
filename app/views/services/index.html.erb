@@ -2,9 +2,9 @@
   <h1 class="mb-4">Experiências disponíveis</h1>
 
   <!-- Campo de busca centralizado -->
-  <div class="d-flex justify-content-center mb-4">
-    <%= form_with url: services_path, method: :get, local: true, class: "d-flex align-items-center" do |form| %>
-      <%= form.text_field :category, placeholder: "Buscar por categoria", class: "form-control me-2", style: "width: 250px; height: 40px; padding: 5px 10px; font-size: 1rem; border-radius: 8px;" %>
+  <div class="mb-4">
+    <%= form_with url: services_path, method: :get, local: true, class: "search-bar" do |form| %>
+      <%= form.text_field :category, placeholder: "Buscar por categoria", class: "form-control me-2", style: "height: 40px; padding: 5px 10px; font-size: 1rem; border-radius: 8px;" %>
       <%= form.submit "Buscar", class: "btn btn-success", style: "height: 40px; font-size: 1rem; padding: 0 15px; border-radius: 8px;" %>
     <% end %>
   </div>
