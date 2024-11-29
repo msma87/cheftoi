@@ -5,7 +5,7 @@
     </div>
 
     <div class="d-flex justify-content-end">
-      <%= link_to new_service_path, class: "btn btn-success" do %>
+      <%= link_to new_service_path, class: "btn btn-success btn-add" do %>
         <i class="fas fa-plus me-2"></i>Adicionar Nova Experiência
       <% end %>
     </div>
@@ -23,7 +23,7 @@
                 <% end %>
               <p class="card-subtitle"><%= service.category %></p>
               <h6 class="card-subtitle mb-3">R$ <%= number_with_precision(service.price, precision: 2) %></h6>
-              <%= link_to "Ver detalhes", service_path(service), class: "btn btn-primary" %>
+              <%= link_to "Ver detalhes", service_path(service), class: "btn btn-primary btn-add" %>
             </div>
           </div>
         </div>
@@ -40,5 +40,5 @@
 
   <%# botão de voltar para página anterior %>
   <div class="text-center mt-4">
-    <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
+    <%= link_to '< Voltar', :back , class: 'btn btn-warning btn-custom' %>
   </div>
