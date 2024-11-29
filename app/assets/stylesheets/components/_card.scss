@@ -95,3 +95,7 @@ $bg-color: #ffffff9c;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
+#centralize{
+  justify-self: center;
+  max-width: 100vw !important;
+}
