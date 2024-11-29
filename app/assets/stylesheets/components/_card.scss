@@ -50,6 +50,14 @@ $bg-color: #ffffff9c;
   }
 }
 
+.card-photo {
+  height: 60%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+}
 // Show card
 .card-details {
   @extend .card-base;

@@ -20,6 +20,9 @@
         <div class="col-md-4">
           <div class="card h-100">
             <div class="card-body">
+              <% if service.photo.attached? %>
+                <div class="card-photo"><%= cl_image_tag service.photo.key, crop: :fill %></div>
+              <% end %>
               <h5 class="card-title"><%= service.title %></h5>
               <p class="card-subtitle"><%= service.category %></p>
               <h6 class="card-subtitle mb-3">R$ <%= number_with_precision(service.price, precision: 2) %></h6>
