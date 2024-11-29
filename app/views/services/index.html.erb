@@ -18,8 +18,8 @@
     <% if @services.any? %>
       <% @services.each do |service| %>
         <div class="col-md-4">
-          <div class="card h-100">
-            <div class="card-body">
+          <div class="card h-100" style="border-radius: 8px;">
+            <div class="card-body" style="border-radius: 8px;">
               <% if service.photo.attached? %>
                 <div class="card-photo"><%= cl_image_tag service.photo.key, crop: :fill %></div>
               <% end %>
