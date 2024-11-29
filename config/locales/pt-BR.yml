@@ -9,6 +9,12 @@ pt-BR:
     month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
     abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
   activerecord:
+    attributes:
+      service:
+        title: "Título"
+        category: "Categoria"
+        price: "Preço"
+        description: "Descrição"
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

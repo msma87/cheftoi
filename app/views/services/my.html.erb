@@ -1,9 +1,14 @@
 <div class="container mt-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1>Meus Serviços de Chef</h1>
-    <%= link_to new_service_path, class: "btn btn-success" do %>
-      <i class="fas fa-plus me-2"></i>Adicionar Novo Serviço
-    <% end %>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-center mb-4">
+      <h1 class="main-title" style="color: #2F4F4F;">Meus Serviços de Chef</h1>
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <%= link_to new_service_path, class: "btn btn-success" do %>
+        <i class="fas fa-plus me-2"></i>Adicionar Novo Serviço
+      <% end %>
+    </div>
   </div>
 
   <% if @services.any? %>
@@ -13,6 +18,9 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title"><%= service.title %></h5>
+                <% if service.photo.attached? %>
+                <div class="card-photo"><%= cl_image_tag service.photo.key, crop: :fill %></div>
+                <% end %>
               <p class="card-subtitle"><%= service.category %></p>
               <h6 class="card-subtitle mb-3">R$ <%= number_with_precision(service.price, precision: 2) %></h6>
               <%= link_to "Ver detalhes", service_path(service), class: "btn btn-primary" %>

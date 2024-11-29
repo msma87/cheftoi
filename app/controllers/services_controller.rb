@@ -83,6 +83,6 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:title, :category, :price, :description, :photo) # Atualize com todos os campos permitidos
+    params.require(:service).permit(:title, :category, :price, :descriptio,:photo) # Atualize com todos os campos permitidos
   end
 end

@@ -1,44 +1,49 @@
-<div class="container mt-4">
+<div class="container-fluid p-4">
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <h2 class="mb-4 text-primary bg-info p-2 fw-bold text-center">Editar Serviço</h2>
+    <div class="col-6">
+      <%= simple_form_for @service, html: { class: "w-100", multipart: true } do |form| %>
+        <h1 class="text-center mb-4">Editar Experiência</h1>
 
-      <%= form_with(model: @service, local: true, class: 'needs-validation', novalidate: true) do |form| %>
-        <% if @service.errors.any? %>
-          <div class="alert alert-danger">
-            <h4>Erros encontrados</h4>
-            <ul>
-              <% @service.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
+        <%= form.input :title,
+            label: 'Título do serviço',
+            error: 'O título não pode ficar em branco',
+            required: true,
+            wrapper_html: { class: 'mb-3' } %>
 
-        <div class="form-group mb-3 text-primary fw-bold">
-          <%= form.label :title %>
-          <%= form.text_field :title, class: 'form-control', required: true %>
-        </div>
+        <%= form.input :category,
+            label: 'Categoria',
+            error: 'A categoria não pode ficar em branco',
+            required: true,
+            wrapper_html: { class: 'mb-3' } %>
 
-        <div class="form-group mb-3 text-primary fw-bold pb-2">
-          <%= form.label :category %>
-          <%= form.text_field :category, class: 'form-control', required: true %>
-        </div>
+        <%= form.input :price,
+            label: 'Preço',
+            as: :float,
+            input_html: {
+              step: '0.01',
+              min: '0',
+              pattern: '^\d*\.?\d*$'
+            },
+            error: 'O preço deve ser um número maior que zero',
+            required: true,
+            wrapper_html: { class: 'mb-3' } %>
 
-        <div class="form-group mb-3 text-primary fw-bold pb-2">
-          <%= form.label :price %>
-          <%= form.number_field :price, class: 'form-control', step: 0.01, required: true %>
-        </div>
+        <%= form.input :description,
+            label: 'Descrição',
+            error: 'A descrição não pode ficar em branco',
+            required: true,
+            wrapper_html: { class: 'mb-3' } %>
 
-        <div class="form-group mb-3 text-primary fw-bold pb-2">
-          <%= form.label :description %>
-          <%= form.text_area :description, class: 'form-control', rows: 4 %>
-        </div>
+        <%= form.input :photo,
+            as: :file,
+            label: 'Foto do serviço',
+            wrapper_html: { class: 'mb-4' } %>
 
         <div class="d-flex justify-content-between">
-          <%= form.submit 'Atualizar Serviço', class: 'btn btn-primary fw-bold pb-2' %>
-          <%= link_to 'Cancelar', service_path(@service), class: 'btn btn-secondary fw-bold' %>
+          <%= form.button :submit, 'Atualizar', class: 'btn btn-primary px-4' %>
+          <%= link_to 'Cancelar', service_path(@service), class: 'btn btn-secondary' %>
         </div>
+        <%= link_to "Voltar", my_services_path, class: 'btn btn-link' %>
       <% end %>
     </div>
     <%# botão de voltar para página anterior %>
