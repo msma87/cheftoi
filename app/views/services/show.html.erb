@@ -2,8 +2,8 @@
  <div class="card-services" style="max-width: 800px; margin: 0 auto;">
    <div class="card-body">
      <div class="d-flex justify-content-between align-items-center mb-4">
-          <% if service.photo.attached? %>
-            <div class="card-photo"><%= cl_image_tag service.photo.key, crop: :fill %></div>
+          <% if @service.photo.attached? %>
+            <div class="card-photo"><%= cl_image_tag @service.photo.key, crop: :fill %></div>
           <% end %>
        <h1 class="card-title"><%= @service.title %></h1>
        <h2 class="text-success">R$ <%= number_with_precision(@service.price, precision: 2) %></h2>
