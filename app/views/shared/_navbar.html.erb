@@ -11,6 +11,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
+          <!-- Texto de boas-vindas à esquerda do ícone, em branco -->
+          <li class="nav-item">
+            <span class="navbar-text me-3 text-white">Olá, seja bem-vindo(a) ao Chef Toi!</span>
+          </li>
+
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= image_tag "imagens/white-icon.png", class: "avatar", alt: "dropdown menu", style: "height: 36px;" %>

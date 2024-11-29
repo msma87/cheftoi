@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h1 class="mb-4" style="color: #2F4F4F; text-align: center;">Experiências disponíveis</h1>
+  <h1 class="mb-4" style="color: #2F4F4F; text-align: center;">Experiências Disponíveis</h1>
 
   <!-- Campo de busca centralizado -->
   <div class="mb-4">
@@ -18,8 +18,9 @@
     <% if @services.any? %>
       <% @services.each do |service| %>
         <div class="col-md-3">
-          <div class="card", id="centralize">
+          <div class="card" style="border-radius: 8px;", id="centralize">
             <div class="card-body">
+
               <% if service.photo.attached? %>
                 <div class="card-photo mb-3"><%= cl_image_tag service.photo.key, crop: :fill , width: 300, height: 300 %></div>
               <% end %>
