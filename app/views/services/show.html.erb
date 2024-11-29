@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <div class="card mb-3">
+  <div class="card mb-3" style="border-radius: 8px">
   <div class="row g-0">
     <div class="col-md-4">
       <% if @service.photo.attached? %>
@@ -12,7 +12,7 @@
           <h2 class="text-success">R$ <%= number_with_precision(@service.price, precision: 2) %></h2>
           <h3>Categoria</h3>
           <p><%= @service.category %></p>
-          <h3>Sobre o Serviço</h3>
+          <h3>Sobre a Experiência</h3>
           <p><%= @service.description %></p>
           <p class="text-muted">Chef Profissional</p>
           <h3><%= @service.user.email %></h3>

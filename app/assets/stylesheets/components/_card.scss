@@ -37,16 +37,16 @@ $bg-color: #ffffff9c;
 
   &:hover {
     transform: translateY(-5px);
-    background: $dark-color;
-    color: $light-color;
+    background: $light-color;
+    color: $dark-color ;
 
     .card-title, .card-subtitle {
-      color: $light-color;
+      color: $dark-color ;
     }
 
     .btn-primary {
-      background: $light-color;
-      color: $dark-color;
+      background: $dark-color;
+      color: $light-color;
     }
   }
 }
