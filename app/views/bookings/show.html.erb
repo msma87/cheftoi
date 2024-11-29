@@ -27,11 +27,37 @@
           </p>
         </div>
       <% end %>
+
+      <div class="border-top pt-4">
+        <div class="mb-3">
+          <h3 class="text-muted">👨‍🍳 Contato do Chef</h3>
+          <h5><%= @booking.service.user.email %></h5>
+          <p class="text-muted">
+            Nosso chef profissional terá o maior prazer em proporcionar uma experiência memorável para você e seus convidados.
+          </p>
+        </div>
+
+        <p class="text-muted fs-6">
+          Qualquer dúvida ou necessidade especial, não hesite em entrar em contato. Estamos aqui para garantir que sua experiência seja perfeita.
+        </p>
+
+        <% if @booking.user == current_user %>
+          <%= link_to service_booking_path(@service, @booking),
+                      data: { turbo_method: :delete, turbo_confirm: "Confirma a exclusão da sua reserva? Estamos tristes em vê-lo partir, mas respeitamos sua decisão." },
+                      class: "btn btn-outline-danger" do %>
+            <i class="fas fa-trash me-2"></i>Cancelar Reserva
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
-    <div class="card-footer text-center text-muted pb-3">
-      Obrigado por escolher nossa experiência gastronômica! 🍴
+    <div class="card-footer text-center text-muted py-3">
+      <p>Obrigado por escolher nossa experiência gastronômica! 🍴</p>
     </div>
   </div>
-</div>
 
+  <%# Botão de voltar para página anterior %>
+  <div class="text-center mt-4 mb-4">
+    <%= link_to 'Voltar', :back, class: 'btn btn-secondary' %>
+  </div>
+</div>
