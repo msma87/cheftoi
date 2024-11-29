@@ -1,63 +1,47 @@
 <div class="container mt-4">
- <div class="card-services" style="max-width: 800px; margin: 0 auto;">
-   <div class="card-body">
-     <div class="d-flex justify-content-between align-items-center mb-4">
-          <% if @service.photo.attached? %>
-            <div class="card-photo"><%= cl_image_tag @service.photo.key, crop: :fill , width: 500, height: 500 %></div>
-          <% end %>
-     </div>
-
-      <div class="mb-4">
-       <h3>Experiência</h3>
-       <p><%= @service.title %></p>
-     </div>
-
-     <div class="mb-4">
-       <h3>Categoria</h3>
-       <p> R$ <%= number_with_precision(@service.price, precision: 2)  %></p>
-     </div>
-
-     <div class="mb-4">
-       <h3>Categoria</h3>
-       <p><%= @service.category %></p>
-     </div>
-
-     <% if @service.description.present? %>
-       <div class="mb-4">
-         <h3>Sobre o Serviço</h3>
-         <p><%= @service.description %></p>
-       </div>
-     <% end %>
-
-     <div class="border-top pt-4">
-       <div class="mb-3">
-         <h3><%= @service.user.email %></h3>
-         <p class="text-muted">Chef Profissional</p>
-       </div>
-
-       <div class="d-flex gap-3">
-         <% if @service.user == current_user %>
-           <%= link_to edit_service_path(@service), class: "btn btn-primary" do %>
-             <i class="fas fa-edit me-2"></i>Editar
-           <% end %>
-
-           <%= link_to service_path(@service),
-               data: { turbo_method: :delete, turbo_confirm: "Confirma exclusão?" },
-               class: "btn btn-danger" do %>
-             <i class="fas fa-trash me-2"></i>Excluir
-           <% end %>
-         <% else %>
-           <%= link_to new_service_booking_path(@service), class: "btn btn-success" do %>
-             <i class="fas fa-calendar-plus me-2"></i>Reservar
-           <% end %>
-         <% end %>
-       </div>
-     </div>
-   </div>
- </div>
-      <%# botão de voltar para página anterior %>
-      <div class="text-center mt-4 mb-4">
-        <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
+  <div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <% if @service.photo.attached? %>
+            <div class="card-photo"><%= cl_image_tag @service.photo.key, crop: :fill , width: 300, height: 300 %></div>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body ms-3">
+        <h1 class="card-title"><%= @service.title %></h1>
+          <h2 class="text-success">R$ <%= number_with_precision(@service.price, precision: 2) %></h2>
+          <h3>Categoria</h3>
+          <p><%= @service.category %></p>
+          <h3>Sobre o Serviço</h3>
+          <p><%= @service.description %></p>
+          <p class="text-muted">Chef Profissional</p>
+          <h3><%= @service.user.email %></h3>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="d-flex gap-3", id="centralize">
+  <% if @service.user == current_user %>
+    <%= link_to edit_service_path(@service), class: "btn btn-primary" do %>
+    <i class="fas fa-edit me-2"></i>Editar
+  <% end %>
+  <%= link_to service_path(@service),
+      data: { turbo_method: :delete, turbo_confirm: "Confirma exclusão?" },
+      class: "btn btn-danger" do %>
+    <i class="fas fa-trash me-2"></i>Excluir
+  <% end %>
+<% else %>
+  <%= link_to new_service_booking_path(@service), class: "btn btn-success" do %>
+    <i class="fas fa-calendar-plus me-2"></i>Reservar
+  <% end %>
+<% end %>
+</div>
+
+      <%# botão de voltar para página anterior %>
+<div class="text-center mt-4 mb-4", id="centralize">
+  <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
+</div>
 
 </div>

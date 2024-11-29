@@ -32,7 +32,8 @@ $bg-color: #ffffff9c;
   @extend .card-base;
   transition: transform 0.2s;
   margin-bottom: 20px;
-  max-width: 250px;
+  // min-width: 300px;
+  // min-height: 550px;
 
   &:hover {
     transform: translateY(-5px);
@@ -51,7 +52,7 @@ $bg-color: #ffffff9c;
 }
 
 .card-photo {
-  height: 60%;
+  // height: 60%;
   img {
     width: 100%;
     height: 100%;
@@ -97,5 +98,5 @@ $bg-color: #ffffff9c;
 }
 #centralize{
   justify-self: center;
-  max-width: 100vw !important;
+  // max-width: 100vw !important;
 }
