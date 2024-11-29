@@ -39,11 +39,6 @@
           Qualquer dúvida ou necessidade especial, não hesite em entrar em contato. Estamos aqui para garantir que sua experiência seja perfeita.
         </p>
 
-        <div class="d-flex gap-3">
-          <%= link_to service_path(@service), class: "btn btn-outline-secondary" do %>
-            <i class="fas fa-arrow-left me-2"></i>Voltar
-          <% end %>
-
           <% if @booking.user == current_user %>
             <%= link_to service_booking_path(@service, @booking),
                 data: { turbo_method: :delete, turbo_confirm: "Confirma a exclusão da sua reserva? Estamos tristes em vê-lo partir, mas respeitamos sua decisão." },
@@ -55,4 +50,8 @@
       </div>
     </div>
   </div>
+  <%# botão de voltar para página anterior %>
+    <div class="text-center mt-4 mb-4">
+      <%= link_to 'Voltar', :back , class: 'btn btn-secondary' %>
+    </div>
 </div>
