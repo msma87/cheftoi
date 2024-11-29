@@ -1,5 +1,5 @@
-<% flash.each do |key, message| %>
-  <div class="alert alert-<%= flash_class_for(key) %> alert-dismissible fade show m-1" role="alert">
+<% flash.each do |key, message| %> 
+  <div class="alert alert-<%= flash_class_for(key) %> alert-dismissible fade show m-1" role="alert" style="background-color: #D8C3A5; border-color: #D8C3A5; color: #000000;">
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     <%= message %>
   </div>
