@@ -1,21 +1,45 @@
+<!-- Container for the entire form -->
 <div class="form-container">
+  <!-- Devise form for login -->
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-          <%= f.input :email,
-              label: "Seu e-mail",
-              required: false,
-              autofocus: true,
-              input_html: { autocomplete: "email" } %>
-          <%= f.input :password,
-              label: "Sua senha",
-              required: false,
-              input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean, label: "Lembrar meus dados" if devise_mapping.rememberable? %>
+
+    <!-- Header for better structure -->
+    <div class="form-header">
+      <h2><strong>Bem-vindo ao ChefToi</strong></h2>
+      <p>Por favor, entre com seus dados para continuar.</p>
     </div>
 
+
+    <!-- Input fields for email and password -->
+    <div class="form-inputs">
+      <!-- Email input with label -->
+      <%= f.input :email,
+          label: "Seu e-mail",
+          required: true, #<-- Mark as required for accessibility -->
+          autofocus: true, #<!-- Auto-focus on this field for user convenience -->
+          input_html: { autocomplete: "email", class: "form-control" } %>
+
+      <!-- Password input with label -->
+      <%= f.input :password,
+          label: "Sua senha",
+          required: true, #<!-- Mark as required for accessibility -->
+          input_html: { autocomplete: "current-password", class: "form-control" } %>
+
+<!-- Remember me checkbox, conditionally rendered -->
+<%= f.input :remember_me, as: :boolean,
+    label: "Lembrar meus dados",
+    input_html: { class: "form-check-input custom-checkbox" } if devise_mapping.rememberable? %>
+
+
+    <!-- Submit button with enhanced styling -->
     <div class="form-actions">
-      <!-- Botão estilizado -->
-      <%= f.button :submit, "Fazer login", class: "btn-submit" %>
-      <%= link_to "Fazer cadastro", new_registration_path(resource_name), class: "btn btn-submit my-3" %>
+      <%= f.button :submit, "Fazer login", class: "btn btn-submit w-100 mt-3" %>
+    </div>
+
+    <!-- Registration link for new users -->
+    <div class="form-actions text-center">
+      <%= link_to "Novo aqui? Faça seu cadastro.", new_registration_path(resource_name),
+          class: "btn btn-link my-3" %>
     </div>
   <% end %>
+</div>
