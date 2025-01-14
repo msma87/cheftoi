@@ -1,66 +1,116 @@
 # Limpando o banco de dados
+puts "Limpando banco de dados..."
 Service.destroy_all
 User.destroy_all
+
 # Criando usuários
-users = [
+puts "Criando usuários..."
+users_data = [
   { email: "admin@admin.com", password: "123456" },
-  { email: "aliceveiga@gmail.com", password: "password" },
-  { email: "brunomartins@gmail.com", password: "password" },
-  { email: "carlaprieto@gmail.com", password: "password" }
+  { email: "joana.souza@gmail.com", password: "password" },
+  { email: "carlos.silva@gmail.com", password: "password" },
+  { email: "mariana.gomes@gmail.com", password: "password" }
 ]
-user_records = users.map { |user_data| User.create!(user_data) }
-# Criando serviços
-
-
-    service1 = Service.create!(title: "Jantar Gourmet", category: "Italiana", price: 450.00, description: "Pizza artesanal em forno a lenha", user: user_records[0])
-    service1_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821675/Jantar_Gourmet_icl7as.jpg"
-    service1.photo.attach(io: URI.open(service1_url), content_type: "image/png", filename: File.basename(service1_url))
-
-
-    service2 = Service.create!(title: "Buffet Vegano", category: "Vegano", price: 700.00, description: "Buffet completo com opções veganas criativas.", user: user_records[1])
-    service2_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821676/Buffet_Vegano_dfqk9o.jpg"
-    service2.photo.attach(io: URI.open(service2_url), content_type: "image/png", filename: File.basename(service2_url))
-
-
-    service3 = Service.create!(title: "Churrasco Premium", category: "Churrasco", price: 800.00, description: "Churrasco completo com cortes nobres.", user: user_records[2])
-    service3_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821676/Churrasco_fwwtyh.jpg"
-    service3.photo.attach(io: URI.open(service3_url), content_type: "image/png", filename: File.basename(service3_url))
-
-
-    service4 = Service.create!(title: "Sobremesas Exclusivas", category: "Sobremesas", price: 300.00, description: "Seleção de sobremesas finas.", user: user_records[0])
-    service4_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821675/Sobremesas_exclusivas_swccyh.jpg"
-    service4.photo.attach(io: URI.open(service4_url), content_type: "image/png", filename: File.basename(service4_url))
-
-
-    service5 = Service.create!(title: "Cozinha Internacional", category: "Internacional", price: 600.00, description: "Menu internacional com pratos típicos.", user: user_records[1])
-    service5_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821676/BuffetInternacional_fmrq6x.jpg"
-    service5.photo.attach(io: URI.open(service5_url), content_type: "image/png", filename: File.basename(service5_url))
-
-
-    service6 = Service.create!(title: "Rodízio de Sushi", category: "Japonesa", price: 750.00, description: "Rodízio de sushi fresco e servido em casa", user: user_records[1])
-    service6_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821676/Sushis_s8s5tf.jpg"
-    service6.photo.attach(io: URI.open(service6_url), content_type: "image/png", filename: File.basename(service6_url))
-
-
-    service7 = Service.create!(title: "Paella Tradicional", category: "Espanhola", price: 750.00, description: "Autêntica paella valenciana para 10 pessoas.", user: user_records[1])
-    service7_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821676/Aesthetic_Spanish_Paella_Dish_axdpnr.jpg"
-    service7.photo.attach(io: URI.open(service7_url), content_type: "image/png", filename: File.basename(service7_url))
-
-
-    service8 = Service.create!(title: "Feijoada Completa", category: "Brasileira", price: 600.00, description: "Feijoada tradicional com todas as guarnições.", user: user_records[2])
-    service8_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821676/Feijoada_ujbrja.jpg"
-    service8.photo.attach(io: URI.open(service8_url), content_type: "image/png", filename: File.basename(service8_url))
-
-
-    service9 = Service.create!(title: "Pizza Napolitana", category: "Italiana", price: 450.00, description: "Pizza artesanal em forno a lenha", user: user_records[0])
-    service9_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821676/Aut%C3%A9ntica_pizza_napolitana_msukjp.jpg"
-    service9.photo.attach(io: URI.open(service9_url), content_type: "image/png", filename: File.basename(service9_url))
-
-
-    service10 = Service.create!(title: "Café da Manhã Deluxe", category: "Café da Manhã", price: 350.00, description: "Café da manhã completo com produtos artesanais.", user: user_records[1])
-    service10_url = "https://res.cloudinary.com/dq3bwy9sm/image/upload/v1732821676/Cafe_da_manha_pwbnzr.jpg"
-    service10.photo.attach(io: URI.open(service10_url), content_type: "image/png", filename: File.basename(service10_url))
-
-
+users = users_data.map { |user_data| User.create!(user_data) }
 puts "#{User.count} usuários criados!"
+
+# Criando serviços
+puts "Criando serviços..."
+services_data = [
+  {
+    title: "Jantar Romântico à Luz de Velas",
+    category: "Gastronomia Italiana",
+    price: 350.00,
+    description: "Prepare-se para uma experiência inesquecível com um menu completo que inclui entrada, prato principal e sobremesa, tudo inspirado na autêntica cozinha italiana. Ideal para ocasiões especiais.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736888657/jantar-romantico_n5fftm.jpg",
+    user: users[0]
+  },
+  {
+    title: "Buffet Vegano Criativo",
+    category: "Gastronomia Vegana",
+    price: 680.00,
+    description: "Transforme seu evento com um buffet vegano que combina sabores inovadores e opções nutritivas. Inclui pratos quentes, saladas e sobremesas feitas com ingredientes frescos e locais.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736887191/Vegan-Easter-Buffet_gvqqvl.jpg",
+    user: users[1]
+  },
+  {
+    title: "Churrasco Gourmet Premium",
+    category: "Churrasco",
+    price: 950.00,
+    description: "Cortes nobres, acompanhamentos deliciosos e um toque de sofisticação. Ideal para quem deseja transformar o churrasco tradicional em um evento de alta gastronomia.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736888894/pasta-beef-restaurant-gourmet-flavor-italian-specialties-ambiance-chefs-dishes-quality_1246444-74550_f6q7l5.jpg",
+    user: users[2]
+  },
+  {
+    title: "Mesa de Sobremesas Personalizadas",
+    category: "Sobremesas Finas",
+    price: 420.00,
+    description: "Uma seleção exclusiva de sobremesas artesanais, desde mousses e tortas até doces finos. Personalize o cardápio para combinar com o tema do seu evento.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736888970/d3bd6c16a48f5918745252708c3634d1_lq0kby.jpg",
+    user: users[0]
+  },
+  {
+    title: "Jantar Internacional - Sabores do Mundo",
+    category: "Cozinha Internacional",
+    price: 750.00,
+    description: "Explore sabores autênticos de diferentes culturas em um menu que passa por pratos mexicanos, tailandeses, franceses e mais. Uma viagem gastronômica sem sair de casa.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736889011/gastronomia-enjoy-blog-1024x682_p8zoah.jpg",
+    user: users[1]
+  },
+  {
+    title: "Rodízio de Sushi em Casa",
+    category: "Culinária Japonesa",
+    price: 890.00,
+    description: "Sushis frescos preparados ao vivo por um chef especializado. Inclui uma variedade de opções, como nigiris, sashimis e rolls personalizados.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736889057/rodizios-min-1_nd9kas.jpg",
+    user: users[1]
+  },
+  {
+    title: "Paella Valenciana Autêntica",
+    category: "Gastronomia Espanhola",
+    price: 880.00,
+    description: "Desfrute de uma paella tradicional valenciana, preparada com ingredientes frescos como frutos do mar, açafrão e arroz importado. Perfeita para jantares em família ou eventos.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736889127/3.-Paella-Valenciana_wakksd.jpg",
+    user: users[2]
+  },
+  {
+    title: "Feijoada Completa Gourmet",
+    category: "Gastronomia Brasileira",
+    price: 600.00,
+    description: "Uma feijoada rica e completa, com carnes selecionadas, acompanhamentos como couve, farofa e laranja, e sobremesas típicas brasileiras.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736889224/feijoada-wooden-table-traditional-brazilian-food_123827-26007_nswexr.jpg",
+    user: users[2]
+  },
+  {
+    title: "Café da Manhã Colonial",
+    category: "Café da Manhã",
+    price: 400.00,
+    description: "Um café da manhã completo com pães artesanais, bolos caseiros, geleias frescas, sucos naturais e um toque especial de hospitalidade.",
+    photo_url: "https://res.cloudinary.com/ddbg7qknd/image/upload/v1736893855/yukiko-kanada-Ou4CQo6jzvU-unsplash-1024x692_owwyaf.jpg",
+    user: users[1]
+  }
+]
+
+services_data.each do |service_data|
+  service = Service.create!(
+    title: service_data[:title],
+    category: service_data[:category],
+    price: service_data[:price],
+    description: service_data[:description],
+    user: service_data[:user]
+  )
+
+  # Adicionando fotos
+  begin
+    service.photo.attach(
+      io: URI.open(service_data[:photo_url]),
+      filename: File.basename(service_data[:photo_url]),
+      content_type: "image/png"
+    )
+    puts "Foto anexada para o serviço: #{service.title}"
+  rescue => e
+    puts "Erro ao anexar foto para o serviço: #{service.title} - #{e.message}"
+  end
+end
+
 puts "#{Service.count} serviços criados!"
