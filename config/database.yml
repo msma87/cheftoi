@@ -82,3 +82,4 @@ production:
   database: chef_toi_production
   username: chef_toi
   password: <%= ENV["CHEF_TOI_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

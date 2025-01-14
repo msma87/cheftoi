@@ -46,3 +46,5 @@
 .env*
 .env*
 .env*
+
+/config/credentials/production.key
