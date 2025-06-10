@@ -31,7 +31,7 @@ gem "devise"
 
 gem "tailwindcss-rails"
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -60,8 +60,7 @@ gem "cloudinary"
 
 
 group :development, :test do
-  gem "dotenv-rails"
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+    # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
 end
 
